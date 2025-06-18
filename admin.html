@@ -3,62 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Futuristic Coin Wallet</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
+  <title>Admin - Wallet Manager</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="gradient-bg">
-  <div id="auth-container">
-    <div class="card login-card">
-      <h1>🪐 Coin Wallet Login</h1>
-      <input type="text" id="login-id" placeholder="Username">
-      <input type="password" id="login-pw" placeholder="Password">
-      <button onclick="login()">Login</button>
-      <div class="link-row">
-        <a href="#" onclick="showRegister()">Sign up</a> | 
-        <a href="#" onclick="showRecovery()">Forgot ID/Password?</a>
-      </div>
-    </div>
-  </div>
+<body>
+  <div class="container">
+    <h1>👨‍💻 관리자 페이지</h1>
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>주소</th>
+          <th>잔액</th>
+          <th>액션</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
 
-  <div id="wallet-container" class="hidden">
-    <div class="card">
-      <h2>👤 Welcome, <span id="username-display"></span></h2>
-      <p>💰 Your Balance: <strong id="wallet-balance">0</strong> Coins</p>
-      <button onclick="logout()">Logout</button>
-    </div>
-  </div>
+    <h2>➕ 새 사용자 추가</h2>
+    <form id="addUserForm">
+      <input type="text" id="name" placeholder="이름" required />
+      <input type="text" id="address" placeholder="지갑 주소" required />
+      <input type="number" id="balance" placeholder="잔액" required />
+      <button type="submit">추가</button>
+    </form>
 
-  <div id="admin-panel" class="hidden">
-    <div class="card">
-      <h2>🛠 Admin Panel</h2>
-      <p>Manage user balances and accounts</p>
-      <table id="user-table">
-        <thead><tr><th>User</th><th>Balance</th><th>Actions</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
+    <a href="index.html" class="admin-link">← 사용자 페이지</a>
   </div>
-
-  <!-- Registration Form -->
-  <div id="register-container" class="hidden">
-    <div class="card">
-      <h2>Create New Account</h2>
-      <input type="text" id="reg-id" placeholder="Choose Username">
-      <input type="password" id="reg-pw" placeholder="Choose Password">
-      <button onclick="register()">Register</button>
-      <button onclick="backToLogin()">Back to Login</button>
-    </div>
-  </div>
-
-  <!-- Recovery Form -->
-  <div id="recovery-container" class="hidden">
-    <div class="card">
-      <h2>Recover ID / Password</h2>
-      <p>이 데모에선 이메일 인증 없이 복구는 안 됩니다 🙅‍♂️</p>
-      <button onclick="backToLogin()">Back to Login</button>
-    </div>
-  </div>
+  <script src="app.js"></script>
 </body>
 </html>

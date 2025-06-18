@@ -3,15 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Wallet</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Futuristic Coin Wallet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
 </head>
-<body>
-  <div class="container">
-    <h1>🪙 코인 지갑</h1>
-    <div id="userInfo" class="card"></div>
-    <a href="admin.html" class="admin-link">관리자 페이지 →</a>
+<body class="gradient-bg">
+  <div id="auth-container">
+    <div class="card login-card">
+      <h1>🪐 Coin Wallet Login</h1>
+      <input type="text" id="login-id" placeholder="Username">
+      <input type="password" id="login-pw" placeholder="Password">
+      <button onclick="login()">Login</button>
+      <div class="link-row">
+        <a href="#" onclick="showRegister()">Sign up</a> | 
+        <a href="#" onclick="showRecovery()">Forgot ID/Password?</a>
+      </div>
+    </div>
   </div>
-  <script src="app.js"></script>
+
+  <div id="wallet-container" class="hidden">
+    <div class="card">
+      <h2>👤 Welcome, <span id="username-display"></span></h2>
+      <p>💰 Your Balance: <strong id="wallet-balance">0</strong> Coins</p>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div id="admin-panel" class="hidden">
+    <div class="card">
+      <h2>🛠 Admin Panel</h2>
+      <p>Manage user balances and accounts</p>
+      <table id="user-table">
+        <thead><tr><th>User</th><th>Balance</th><th>Actions</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Registration Form -->
+  <div id="register-container" class="hidden">
+    <div class="card">
+      <h2>Create New Account</h2>
+      <input type="text" id="reg-id" placeholder="Choose Username">
+      <input type="password" id="reg-pw" placeholder="Choose Password">
+      <button onclick="register()">Register</button>
+      <button onclick="backToLogin()">Back to Login</button>
+    </div>
+  </div>
+
+  <!-- Recovery Form -->
+  <div id="recovery-container" class="hidden">
+    <div class="card">
+      <h2>Recover ID / Password</h2>
+      <p>이 데모에선 이메일 인증 없이 복구는 안 됩니다 🙅‍♂️</p>
+      <button onclick="backToLogin()">Back to Login</button>
+    </div>
+  </div>
 </body>
 </html>
