@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Wallet Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>👨‍💻 관리자 페이지</h1>
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>주소</th>
+          <th>잔액</th>
+          <th>액션</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>➕ 새 사용자 추가</h2>
+    <form id="addUserForm">
+      <input type="text" id="name" placeholder="이름" required />
+      <input type="text" id="address" placeholder="지갑 주소" required />
+      <input type="number" id="balance" placeholder="잔액" required />
+      <button type="submit">추가</button>
+    </form>
+
+    <a href="index.html" class="admin-link">← 사용자 페이지</a>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
